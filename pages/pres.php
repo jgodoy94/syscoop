@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['resu']) || empty($_SESSION['resu']) || !isset($_SESSION['AUTH']) || empty($_SESSION['AUTH']) || $_SESSION['AUTH'] != true){
+        header("Location: ../index.html");
+    }
+?>
 <html>
     <head>
         <title>CoopSys</title>
@@ -9,7 +15,7 @@
         <div id="principal-container">
             <header>
                 <img src="">
-                <h1><a href="dash.php">Syscoop</a> - Afiliados</h1>
+                <h1><a href="dash.php">Syscoop</a> - Préstamos</h1>
             </header>
             <nav>
                 <ul>
@@ -20,13 +26,80 @@
                 </ul>
             </nav>
             <div id="principal-body">
-                <div id="busqueda">
+                <div class="busqueda">
                     <form action="pres.php" method="post">
                         <input type="text" required placeholder="Codigo de Afiliado" name="codeafi">
                         <input type="submit" value="BUSCAR">
                     </form>
                     <a href="pres/npres.php">Nuevo Préstamo</a>
                 </div>
+                <?php
+                    if(isset($_POST['codeafi']) && !empty($_POST['codeafi'])){
+                        require("../models/nnoc.php");
+                        $code = $_POST['codeafi'];
+                        $query = "select elpmedi, mena from lbtelpme where elpmedeco = '$code'";
+
+                        $tluser = pg_query($nnoc, $query);
+
+                        if($tluser){
+                            if(pg_num_rows($tluser) > 0){
+                                while( $obj = pg_fetch_object($tluser) ){
+                                    $medi = $obj->elpmedi;
+                                    $mena = $obj->mena;
+                                }
+
+                                $query2 = "select liso, tomon, serpest from lbtserp where elpmedi = '$medi'";
+
+                                $tluser = pg_query($nnoc, $query2);
+
+                                if($tluser){
+                                    if(pg_num_rows($tluser) > 0){
+                                        echo 
+                                        "<div class='subdivpres1'>
+                                        <h3>DATOS DE SOLICITUDES DE PRESTAMO REALIZADAS</h3>";
+                                        while( $obj = pg_fetch_object($tluser) ){
+                                            $liso = $obj->liso;
+                                            $tomon = $obj->tomon;
+                                            if($obj->serpest == 'f'){
+                                                $serpest = "INACTIVO";
+                                            }
+                                            else if($obj->serpest == 't'){
+                                                $serpest = "ACTIVO";
+                                            }
+                                            echo "
+                                            <label>SOLICITUD: </label><label>$liso</label>
+                                            <label>MONTO: </label><label>$tomon</label>
+                                            <label>ESTADO: </label><label>$serpest</label>";
+                                        }
+
+                                        echo "
+                                        </div>
+                                        <div class='busqueda'>
+                                            <form action='pres/actionpres.php' method='post'>
+                                                <input type='text' required placeholder='Solicitud' name='solidi'>
+                                                <input type='submit' name='action' value='Cancelar'>
+                                                <input type='submit' name='action' value='Editar'>
+                                            </form>
+                                        </div>
+                                        ";
+                                    }
+                                    else{ 
+                                        echo 
+                                        "<div class='subdivpres1'>
+                                            <h1>NO SE ENCONTRO DATOS DE PRESTAMO PARA EL AFILIADO $mena</h1>
+                                        </div>";
+                                    }
+                                }
+                            }
+                            else{ 
+                                echo 
+                                "<div class='subdivpres1'>
+                                    <h1>NO SE ENCONTRO EL AFILIADO CON CODIGO DE EMPLEADO $code</h1>
+                                </div>";
+                            }
+                        }
+                    }
+                ?>
             </div>
         </div>
     </body>

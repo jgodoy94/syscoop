@@ -1,11 +1,11 @@
-#busqueda{
+.busqueda{
     width: 60%;
     margin:2% 20%;
     box-sizing: border-box;
     background-color: #6771FF;
 }
 
-#busqueda a{
+.busqueda a{
     display: block;
     width: 20%;
     text-align: center;
@@ -17,7 +17,7 @@
     box-sizing: border-box;
 }
 
-#busqueda input[type = 'submit']{
+.busqueda input[type = 'submit']{
     display: inline-block;
     width: 20%;
     border: 0%;
@@ -30,24 +30,16 @@
     box-sizing: border-box;
 }
 
-#busqueda input[type = 'submit']:hover{
+.busqueda input[type = 'submit']:hover{
     cursor: pointer;
     background-color: #437F27;
 }
 
-#busqueda a:hover{
+.busqueda a:hover{
     background-color: #437F27;
 }
 
-.subdivafi1 label{
-    width: 50%;
-    float: left;
-    color: white;
-    font-size: 120%;
-    border-bottom: solid orange 1px;
-}
-
-.subdivafi2 label{
+.subdivpres1 label{
     width: 16%;
     float: left;
     color: white;

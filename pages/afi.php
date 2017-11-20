@@ -71,10 +71,10 @@
                                         while( $obj = pg_fetch_object($tluser) ){
                                             $liso = $obj->liso;
                                             $tomon = $obj->tomon;
-                                            if($obj->serpest == 0){
+                                            if($obj->serpest == 'f'){
                                                 $serpest = "INACTIVO";
                                             }
-                                            else{
+                                            else if($obj->serpest == 't'){
                                                 $serpest = "ACTIVO";
                                             }
                                             echo "

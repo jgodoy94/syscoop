@@ -8,7 +8,7 @@
         <div id="principal-container">
             <header>
                 <img src="">
-                <h1><a href="dash.php">Syscoop</a> - Afiliados</h1>
+                <h1><a href="dash.php">Syscoop</a> - Gerencia</h1>
             </header>
             <nav>
                 <ul>
