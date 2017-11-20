@@ -31,7 +31,7 @@
                         <input type="text" required placeholder="Codigo de Afiliado" name="codeafi">
                         <input type="submit" value="BUSCAR">
                     </form>
-                    <a href="afi/nafi.php">Nuevo Afiliado</a>
+                    <!--<a href="afi/nafi.php">Nuevo Afiliado</a>-->
                 </div>
                 <?php
                     if(isset($_POST['codeafi']) && !empty($_POST['codeafi'])){
