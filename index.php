@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $_SESSION = array();
+    session_destroy();
+?>
 <html>
     <head>
         <title>Syscoop</title>

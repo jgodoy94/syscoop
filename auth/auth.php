@@ -20,7 +20,7 @@
                             header("Location: ../pages/dash.php");
                         }
                         else{
-                            header("Location: ../index.html");
+                            header("Location: ../index.php");
                         }
                     }
                 }
@@ -28,10 +28,10 @@
             
         }
         else{
-            die("2");header("Location: ../index.html");
+            die("2");header("Location: ../index.php");
         }
     }
     else{
-        header("Location: ../index.html");
+        header("Location: ../index.php");
     }
 ?>

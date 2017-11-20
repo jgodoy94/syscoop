@@ -31,7 +31,6 @@
                         <input type="text" required placeholder="Codigo de Afiliado" name="codeafi">
                         <input type="submit" value="BUSCAR">
                     </form>
-                    <a href="pres/npres.php">Nuevo Préstamo</a>
                 </div>
             </div>
         </div>
