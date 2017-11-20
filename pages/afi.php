@@ -52,6 +52,7 @@
 
                                 echo 
                                 "<div class='subdivafi1'>
+                                    <h3>DATOS DEL AFILIADO</h3>
                                     <label>ID AFILIADO: </label><label>$medi</label>
                                     <label>CODIGO AFILIADO: </label><label>$deco</label>
                                     <label>NOMBRE AFILIADO: </label><label>$mena</label>
@@ -65,7 +66,8 @@
                                 if($tluser){
                                     if(pg_num_rows($tluser) > 0){
                                         echo 
-                                        "<div class='subdivafi2'>";
+                                        "<div class='subdivafi2'>
+                                        <h3>DATOS DE SOLICITUDES DE PRESTAMO REALIZADAS</h3>";
                                         while( $obj = pg_fetch_object($tluser) ){
                                             $liso = $obj->liso;
                                             $tomon = $obj->tomon;
