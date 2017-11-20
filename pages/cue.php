@@ -31,8 +31,60 @@
             </nav>
             <div id="principal-body">
                 <div>
-                    <input type="text" required placeholder="Codigo de Afiliado">
+                    <form action="cue.php" method="post">
+                        <input type="text" name="afiliado" required placeholder="Codigo de Afiliado">
+                        <input type="submit" value="BUSCAR">
+                    </form>
                 </div>
+                <?php
+                    require("../models/nnoc.php");
+                    if(isset($_POST['afiliado']) && !empty($_POST['afiliado'])){
+                        $afi = $_POST['afiliado'];
+                        $query = "select elpmedi from lbtelpme where elpmedeco = '$afi'";
+
+                        $tluser = pg_query($nnoc, $query);
+                        echo "<div>";
+                        if($tluser){
+                            if(pg_num_rows($tluser)>0){
+                                while($obj = pg_fetch_object($tluser)){
+                                    $elpmedi = $obj->elpmedi;
+                                }
+                                    $query = "select liso, tomon from lbtserp where elpmedi = '$elpmedi'";
+            
+                                    $tluser = pg_query($nnoc, $query);
+                                    if($tluser){
+                                        if(pg_num_rows($tluser)>0){
+                                            while($obj = pg_fetch_object($tluser)){
+                                                $soli = $obj->liso;
+                                                $tomon = $obj->tomon;
+                                                echo "
+                                                    <label>SOLICITUD:</label>
+                                                    <label>$soli</label>
+                                                    <label>MONTO:</label>
+                                                    <label>$tomon</label>
+                                                ";
+                                            }
+                                        }
+            
+                                    }
+                                    echo "
+                                        <form action='cue.php' method='post'>
+                
+                                        </form>
+                                    ";
+                            }
+
+                        }
+                        echo "
+                        </div>
+                        <div>
+                            <form action='cue.php' method='post'>
+    
+                            </form>
+                        </div>
+                        ";
+                    }
+                ?>
             </div>
         </div>
     </body>
