@@ -20,6 +20,7 @@
                             echo "<li><a href='gen.php'>Gerencia</a></li>";
                         }
                     ?>
+                    <li><a href="../index.php">Salir</a></li>
                 </ul>
             </nav>
             <div id="principal-body">
