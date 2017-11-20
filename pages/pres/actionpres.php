@@ -6,17 +6,12 @@
     }
 
     if(isset($_POST['solidi']) && !empty($_POST['solidi'])){
-        $soli = $_POST['solidi'];
+        $_SESSION['tempsoli'] = $_POST['solidi'];
         if($_POST['action'] == "Editar"){
-            $_SESSION['tempsoli'] = $soli;
             header("Location: editpres.php");
         }
         else if($_POST['action'] == "Cancelar"){
-            $query = "delete from lbtserp where liso ='$soli'";
-
-            pg_query($nnoc, $query);
-
-            header("Location: ../pres.php");
+            header("Location: comdpres.php");
         }
     }
 ?>
