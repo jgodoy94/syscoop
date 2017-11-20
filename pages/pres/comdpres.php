@@ -2,7 +2,7 @@
     require("../../models/nnoc.php");
     session_start();
     if(!isset($_SESSION['resu']) || empty($_SESSION['resu']) || !isset($_SESSION['AUTH']) || empty($_SESSION['AUTH']) || $_SESSION['AUTH'] != true){
-        header("Location: ../index.html");
+        header("Location: ../index.php");
     }
 ?>
 <html>
