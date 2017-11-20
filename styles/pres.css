@@ -46,3 +46,19 @@
     font-size: 120%;
     border-bottom: solid orange 1px;
 }
+
+.formedit label{
+    width: 50%;
+    float: left;
+    color: white;
+}
+
+.formedit input[type = 'text']{
+    width: 50%;
+    float: left;
+}
+
+.formedit input[type = 'submit']{
+    width: 20%;
+    float: left;
+}
