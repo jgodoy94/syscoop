@@ -47,6 +47,41 @@
     border-bottom: solid orange 1px;
 }
 
+.subdivpres2 label{
+    width: 50%;
+    float: left;
+    color: white;
+    font-size: 120%;
+}
+
+.subdivpres2 form input{
+    width: 50%;
+    float: left;
+}
+
+.subdivpres2 form select{
+    width: 50%;
+    float: left;
+}
+
+.subdivpres2 input[type = 'submit']{
+    display: inline-block;
+    width: 20%;
+    border: 0%;
+    text-align: center;
+    padding: 1%;
+    font-style: none;
+    text-decoration: none;
+    color: white;
+    background-color: #224013;
+    box-sizing: border-box;
+}
+
+.subdivpres2 input[type = 'submit']:hover{
+    cursor: pointer;
+    background-color: #437F27;
+}
+
 .formedit label{
     width: 50%;
     float: left;

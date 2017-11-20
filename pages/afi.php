@@ -37,7 +37,7 @@
                     if(isset($_POST['codeafi']) && !empty($_POST['codeafi'])){
                         require("../models/nnoc.php");
                         $code = $_POST['codeafi'];
-                        $query = "select elpmedi, mena, elpmedeco, ograc from lbtelpme where elpmedeco = '$code'";
+                        $query = "select elpmedi, mena, elpmedeco, ograc, oiralas from lbtelpme where elpmedeco = '$code'";
 
                         $tluser = pg_query($nnoc, $query);
 
@@ -48,6 +48,7 @@
                                     $mena = $obj->mena;
                                     $deco = $obj->elpmedeco;
                                     $ograc = $obj->ograc;
+                                    $oiralas = $obj->oiralas;
                                 }
 
                                 echo 
@@ -57,11 +58,14 @@
                                     <label>CODIGO AFILIADO: </label><label>$deco</label>
                                     <label>NOMBRE AFILIADO: </label><label>$mena</label>
                                     <label>CARGO AFILIADO: </label><label>$ograc</label>
+                                    <label>SALARIO AFILIADO: </label><label>$oiralas</label>
+                                    <label>NIVEL CREDITICIO: </label><label>".($oiralas*3)."</label>
                                 </div>";
 
                                 $query2 = "select liso, tomon, serpest from lbtserp where elpmedi = '$medi'";
 
                                 $tluser = pg_query($nnoc, $query2);
+                                $deuda = 0;
 
                                 if($tluser){
                                     if(pg_num_rows($tluser) > 0){
@@ -71,6 +75,7 @@
                                         while( $obj = pg_fetch_object($tluser) ){
                                             $liso = $obj->liso;
                                             $tomon = $obj->tomon;
+                                            $deuda = $deuda + $tomon;
                                             if($obj->serpest == 'f'){
                                                 $serpest = "INACTIVO";
                                             }
@@ -83,7 +88,9 @@
                                             <label>ESTADO: </label><label>$serpest</label>";
                                         }
 
-                                        echo "</div>";
+                                        echo "
+                                        <br><br><br><br><label>CREDITO DISPONIBLE: </label><label>".(($oiralas*3)-$deuda)."</label>
+                                        </div>";
                                     }
                                     else{ 
                                         echo 
