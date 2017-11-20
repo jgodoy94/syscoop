@@ -1,6 +1,4 @@
 <?php
-    $resu = $_POST['usr'];
-    $resu = $_POST['pss'];
     $host="localhost";
     $port = 5432;
     $user="coopsys";

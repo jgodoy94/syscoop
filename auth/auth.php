@@ -16,6 +16,7 @@
                             session_start();
                             $_SESSION['resu'] = $resu;
                             $_SESSION['vrip'] = $obj->vipri;
+                            $_SESSION['AUTH'] = true;
                             header("Location: ../pages/dash.php");
                         }
                         else{

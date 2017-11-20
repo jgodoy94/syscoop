@@ -1,0 +1,56 @@
+body{
+    background-color: #EEEEEE;
+}
+
+header{
+    width: 100%;
+    float: left;
+    background-color: #477f62;
+    height: 10%;
+    color: white;
+}
+
+header h1{
+    padding-left: 2%;
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+nav{
+    width: 100%;
+    float: left;
+    background-color: #224013;
+    height: 5%;
+    box-sizing: border-box;
+}
+
+nav ul{
+    width: 100%;
+    margin: 0%;
+}
+
+nav ul li{
+    display: inline-block;
+    width: 10%;    
+    box-sizing: border-box;
+    height: 100%;
+}
+
+nav ul li:hover{
+    background-color: #437F27;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+    padding-top: 5%;
+}
