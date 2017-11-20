@@ -54,3 +54,19 @@ nav a{
     height: 100%;
     padding-top: 5%;
 }
+
+#principal-body{
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+}
+
+#principal-body div{
+    width: 60%;
+    margin: 2% 20% 0% 20%;  
+    float: left;  
+    background-color: #6771FF;
+    padding: 2%;
+    height: auto;
+    box-sizing: border-box;
+}

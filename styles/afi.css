@@ -1,0 +1,22 @@
+#busqueda{
+    width: 60%;
+    margin:2% 20%;
+    box-sizing: border-box;
+    background-color: #6771FF;
+}
+
+.subdivafi1 label{
+    width: 50%;
+    float: left;
+    color: white;
+    font-size: 120%;
+    border-bottom: solid orange 1px;
+}
+
+.subdivafi2 label{
+    width: 16%;
+    float: left;
+    color: white;
+    font-size: 120%;
+    border-bottom: solid orange 1px;
+}

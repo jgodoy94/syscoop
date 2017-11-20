@@ -50,7 +50,7 @@
                                 }
 
                                 echo 
-                                "<div>
+                                "<div class='subdivafi1'>
                                     <label>ID AFILIADO: </label><label>$medi</label>
                                     <label>CODIGO AFILIADO: </label><label>$deco</label>
                                     <label>NOMBRE AFILIADO: </label><label>$mena</label>
@@ -63,6 +63,8 @@
 
                                 if($tluser){
                                     if(pg_num_rows($tluser) > 0){
+                                        echo 
+                                        "<div class='subdivafi2'>";
                                         while( $obj = pg_fetch_object($tluser) ){
                                             $liso = $obj->liso;
                                             $tomon = $obj->tomon;
@@ -72,18 +74,17 @@
                                             else{
                                                 $serpest = "ACTIVO";
                                             }
+                                            echo "
+                                            <label>SOLICITUD: </label><label>$liso</label>
+                                            <label>MONTO: </label><label>$tomon</label>
+                                            <label>ESTADO: </label><label>$serpest</label>";
                                         }
 
-                                        echo 
-                                        "<div>
-                                            <label>SOLICITUD N.: </label><label>$liso</label>
-                                            <label>MONTO: </label><label>$tomon</label>
-                                            <label>ESTADO: </label><label>$serpest</label>
-                                        </div>";
+                                        echo "</div>";
                                     }
                                     else{ 
                                         echo 
-                                        "<div>
+                                        "<div class='subdivafi2'>
                                             <h1>NO SE ENCONTRO DATOS DE PRESTAMO PARA EL AFILIADO $mena</h1>
                                         </div>";
                                     }
@@ -91,7 +92,7 @@
                             }
                             else{ 
                                 echo 
-                                "<div>
+                                "<div class='subdivafi1'>
                                     <h1>NO SE ENCONTRO EL AFILIADO CON CODIGO DE EMPLEADO $code</h1>
                                 </div>";
                             }
