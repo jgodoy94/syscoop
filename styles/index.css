@@ -1,0 +1,36 @@
+#log{
+    width: 30%;
+    background-color: #477f62;
+    padding: 4%;
+    margin: 10% 30%;
+}
+
+#log form input{
+    width: 80%;
+    margin: 1% 10%;
+    height: 40px;
+}
+
+#log form img{
+    width: 40%;
+    margin: 1% 30%;
+}
+
+#log input[type = 'submit']{
+    display: inline-block;
+    width: 60%;
+    margin: 0% 20%;
+    border: 0%;
+    text-align: center;
+    padding: 1%;
+    font-style: none;
+    text-decoration: none;
+    color: white;
+    background-color: #224013;
+    box-sizing: border-box;
+}
+
+#log input[type = 'submit']:hover{
+    cursor: pointer;
+    background-color: #437F27;
+}
